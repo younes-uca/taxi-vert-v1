@@ -1,0 +1,237 @@
+
+<p-dialog [(visible)]="viewCourseDialog" [style]="{width: '70vw'}"
+        header="" [modal]="true"
+        styleClass="p-fluid">
+
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="">
+                <div class="p-grid">
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="1">Date demande course</label>
+                                    <p-inputNumber class="p-mb-2 p-mr-2" id="1" [disabled]="true"
+                                                   placeholder="Date demande course"  [(ngModel)]="selectedCourse.dateDemandeCourse"
+                                            [(ngModel)]="selectedCourse.dateDemandeCourse"></p-inputNumber>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="2">Date reponse chauffeur</label>
+                                    <p-inputNumber class="p-mb-2 p-mr-2" id="2" [disabled]="true"
+                                                   placeholder="Date reponse chauffeur"  [(ngModel)]="selectedCourse.dateReponseChauffeur"
+                                            [(ngModel)]="selectedCourse.dateReponseChauffeur"></p-inputNumber>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="3">Date arrive chauffeur</label>
+                                    <p-inputNumber class="p-mb-2 p-mr-2" id="3" [disabled]="true"
+                                                   placeholder="Date arrive chauffeur"  [(ngModel)]="selectedCourse.dateArriveChauffeur"
+                                            [(ngModel)]="selectedCourse.dateArriveChauffeur"></p-inputNumber>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="4">Date arrive client</label>
+                                    <p-inputNumber class="p-mb-2 p-mr-2" id="4" [disabled]="true"
+                                                   placeholder="Date arrive client"  [(ngModel)]="selectedCourse.dateArriveClient"
+                                            [(ngModel)]="selectedCourse.dateArriveClient"></p-inputNumber>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="5">Secteur source</label>
+                                    <p-dropdown [options]="secteurSources" [(ngModel)]="selectedCourse.secteurSourceVo"
+                                            id="5" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Secteur source">
+                                    </p-dropdown>
+                                </div>
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="6">Secteur destination</label>
+                                    <p-dropdown [options]="secteurDestinations" [(ngModel)]="selectedCourse.secteurDestinationVo"
+                                            id="6" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Secteur destination">
+                                    </p-dropdown>
+                                </div>
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="7">Moyen transport</label>
+                                    <p-dropdown [options]="moyenTransports" [(ngModel)]="selectedCourse.moyenTransportVo"
+                                            id="7" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Moyen transport">
+                                    </p-dropdown>
+                                </div>
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="8">Nombre place</label>
+                                    <p-inputNumber class="p-mb-2 p-mr-2" id="8" [disabled]="true"
+                                                   placeholder="Nombre place"  [(ngModel)]="selectedCourse.nombrePlace"
+                                            [(ngModel)]="selectedCourse.nombrePlace"></p-inputNumber>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="9">Operateur</label>
+                                    <p-dropdown [options]="operateurs" [(ngModel)]="selectedCourse.operateurVo"
+                                            id="9" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="description"
+                                            placeholder="Operateur">
+                                    </p-dropdown>
+                                </div>
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="10">Client</label>
+                                    <p-dropdown [options]="clients" [(ngModel)]="selectedCourse.clientVo"
+                                            id="10" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="description"
+                                            placeholder="Client">
+                                    </p-dropdown>
+                                </div>
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="11">Chauffeur</label>
+                                    <p-dropdown [options]="chauffeurs" [(ngModel)]="selectedCourse.chauffeurVo"
+                                            id="11" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="id"
+                                            placeholder="Chauffeur">
+                                    </p-dropdown>
+                                </div>
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="12">Telephone</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Telephone"  [(ngModel)]="selectedCourse.telephone"
+                                           id="12" [(ngModel)]="selectedCourse.telephone"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="13">Commentaire</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Commentaire"  [(ngModel)]="selectedCourse.commentaire"
+                                           id="13" [(ngModel)]="selectedCourse.commentaire"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="14">Note interne</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Note interne"  [(ngModel)]="selectedCourse.noteInterne"
+                                           id="14" [(ngModel)]="selectedCourse.noteInterne"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="15">Etat course</label>
+                                    <p-dropdown [options]="etatCourses" [(ngModel)]="selectedCourse.etatCourseVo"
+                                            id="15" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Etat course">
+                                    </p-dropdown>
+                                </div>
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="16">Adresse depart</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Adresse depart"  [(ngModel)]="selectedCourse.adresseDepart"
+                                           id="16" [(ngModel)]="selectedCourse.adresseDepart"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="17">Note depart</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Note depart"  [(ngModel)]="selectedCourse.noteDepart"
+                                           id="17" [(ngModel)]="selectedCourse.noteDepart"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="18">Altitude depart</label>
+                                    <p-inputNumber class="p-mb-2 p-mr-2" id="18" [disabled]="true"
+                                                   placeholder="Altitude depart"  [(ngModel)]="selectedCourse.altitudeDepart"
+                                            [(ngModel)]="selectedCourse.altitudeDepart"></p-inputNumber>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="19">Longitude depart</label>
+                                    <p-inputNumber class="p-mb-2 p-mr-2" id="19" [disabled]="true"
+                                                   placeholder="Longitude depart"  [(ngModel)]="selectedCourse.longitudeDepart"
+                                            [(ngModel)]="selectedCourse.longitudeDepart"></p-inputNumber>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="20">Adresse arrive</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Adresse arrive"  [(ngModel)]="selectedCourse.adresseArrive"
+                                           id="20" [(ngModel)]="selectedCourse.adresseArrive"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="21">Note arrive</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Note arrive"  [(ngModel)]="selectedCourse.noteArrive"
+                                           id="21" [(ngModel)]="selectedCourse.noteArrive"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="22">Altitude arrive</label>
+                                    <p-inputNumber class="p-mb-2 p-mr-2" id="22" [disabled]="true"
+                                                   placeholder="Altitude arrive"  [(ngModel)]="selectedCourse.altitudeArrive"
+                                            [(ngModel)]="selectedCourse.altitudeArrive"></p-inputNumber>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="23">Longitude arrive</label>
+                                    <p-inputNumber class="p-mb-2 p-mr-2" id="23" [disabled]="true"
+                                                   placeholder="Longitude arrive"  [(ngModel)]="selectedCourse.longitudeArrive"
+                                            [(ngModel)]="selectedCourse.longitudeArrive"></p-inputNumber>
+                                </div>
+
+                </div>
+            </p-tabPanel>
+
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-grid">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times"
+                        class="p-button-text" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+
+            <app-secteur-source-create-chauffeur></app-secteur-source-create-chauffeur>
+            <app-secteur-destination-create-chauffeur></app-secteur-destination-create-chauffeur>
+            <app-moyen-transport-create-chauffeur></app-moyen-transport-create-chauffeur>
+            <app-operateur-create-chauffeur></app-operateur-create-chauffeur>
+            <app-client-create-chauffeur></app-client-create-chauffeur>
+            <app-chauffeur-create-chauffeur></app-chauffeur-create-chauffeur>
+            <app-etat-course-create-chauffeur></app-etat-course-create-chauffeur>
+
+
+
+</p-dialog>
+
+
+

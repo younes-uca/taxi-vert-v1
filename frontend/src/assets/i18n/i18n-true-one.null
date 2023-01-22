@@ -1,0 +1,259 @@
+{
+    'Ville': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Ville',
+                  'TAB-HEADER': 'Ville',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Ville',
+                  'TAB-HEADER': 'Ville',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Chauffeur': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Chauffeur',
+                  'TAB-HEADER': 'Chauffeur',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Chauffeur',
+                  'TAB-HEADER': 'Chauffeur',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'MoyenTransport': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Moyen transport',
+                  'TAB-HEADER': 'Moyen transport',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Moyen transport',
+                  'TAB-HEADER': 'Moyen transport',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Langue': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Langue',
+                  'TAB-HEADER': 'Langue',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Langue',
+                  'TAB-HEADER': 'Langue',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'BlackListChauffeur': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Black list chauffeur',
+                  'TAB-HEADER': 'Black list chauffeur',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Black list chauffeur',
+                  'TAB-HEADER': 'Black list chauffeur',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Client': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Client',
+                  'TAB-HEADER': 'Client',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Client',
+                  'TAB-HEADER': 'Client',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'MarqueTelephone': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Marque telephone',
+                  'TAB-HEADER': 'Marque telephone',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Marque telephone',
+                  'TAB-HEADER': 'Marque telephone',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Secteur': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Secteur',
+                  'TAB-HEADER': 'Secteur',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Secteur',
+                  'TAB-HEADER': 'Secteur',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'ModelApplication': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Model application',
+                  'TAB-HEADER': 'Model application',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Model application',
+                  'TAB-HEADER': 'Model application',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Operateur': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Operateur',
+                  'TAB-HEADER': 'Operateur',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Operateur',
+                  'TAB-HEADER': 'Operateur',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Course': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Course',
+                  'TAB-HEADER': 'Course',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Course',
+                  'TAB-HEADER': 'Course',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Theme': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Theme',
+                  'TAB-HEADER': 'Theme',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Theme',
+                  'TAB-HEADER': 'Theme',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'EtatChauffeur': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Etat chauffeur',
+                  'TAB-HEADER': 'Etat chauffeur',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Etat chauffeur',
+                  'TAB-HEADER': 'Etat chauffeur',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'BlackListClient': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Black list client',
+                  'TAB-HEADER': 'Black list client',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Black list client',
+                  'TAB-HEADER': 'Black list client',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'EtatCourse': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Etat course',
+                  'TAB-HEADER': 'Etat course',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Etat course',
+                  'TAB-HEADER': 'Etat course',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'MarqueVoiture': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Marque voiture',
+                  'TAB-HEADER': 'Marque voiture',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Marque voiture',
+                  'TAB-HEADER': 'Marque voiture',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+
+}

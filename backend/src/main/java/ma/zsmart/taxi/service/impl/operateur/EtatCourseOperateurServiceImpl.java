@@ -1,0 +1,35 @@
+package ma.zsmart.taxi.service.impl.operateur;
+
+import ma.zsmart.taxi.bean.core.EtatCourse;
+import ma.zsmart.taxi.bean.history.EtatCourseHistory;
+import ma.zsmart.taxi.dao.criteria.core.EtatCourseCriteria;
+import ma.zsmart.taxi.dao.criteria.history.EtatCourseHistoryCriteria;
+import ma.zsmart.taxi.dao.facade.core.EtatCourseDao;
+import ma.zsmart.taxi.dao.facade.history.EtatCourseHistoryDao;
+import ma.zsmart.taxi.dao.specification.history.EtatCourseHistorySpecification;
+import ma.zsmart.taxi.service.facade.operateur.EtatCourseOperateurService;
+import ma.zsmart.taxi.ws.converter.EtatCourseConverter;
+import ma.zsmart.taxi.ws.dto.EtatCourseDto;
+import ma.zsmart.taxi.zynerator.service.AbstractServiceImpl;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+
+
+@Service
+public class EtatCourseOperateurServiceImpl extends AbstractServiceImpl<EtatCourse, EtatCourseDto,EtatCourseHistory, EtatCourseCriteria, EtatCourseHistoryCriteria, EtatCourseDao,
+EtatCourseHistoryDao, EtatCourseConverter> implements EtatCourseOperateurService {
+
+    public EtatCourseOperateurServiceImpl(EtatCourseDao dao, EtatCourseHistoryDao historyDao, EtatCourseConverter converter) {
+        super(dao, historyDao, converter);
+    }
+
+
+    public void configure() {
+        super.configure(EtatCourse.class, EtatCourseDto.class, EtatCourseHistory.class, EtatCourseHistoryCriteria.class, EtatCourseHistorySpecification.class);
+    }
+
+
+
+
+}

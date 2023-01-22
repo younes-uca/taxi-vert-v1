@@ -1,0 +1,365 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                                            <button pButton pRipple label="Nouveau" icon="pi pi-plus" class="p-button-success p-mr-2 p-mb-2"
+                                (click)="openCreateOperateur('operateur')"></button>
+
+
+                    <button pButton pRipple label="Chercher"
+                            icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}"
+                            class="p-button-success p-mr-2 p-mb-2"
+                            (click)="this.findByCriteriaShow = !this.findByCriteriaShow"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label="Exporter" icon="pi pi-download" styleClass="p-button-help" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="align-form-search">
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="1"
+                                           type="text"  [(ngModel)]="searchOperateur.description">
+                                    <label for="1">Description</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <p-dropdown  id="2" [options]="yesOrNoCredentialsNonExpired" [(ngModel)]="searchOperateur.credentialsNonExpired"
+                                            [filter]="false" [showClear]="true"  placeholder="Credentials non expired"
+                                                 optionLabel="label" optionValue="value">
+                                    </p-dropdown>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <p-dropdown  id="3" [options]="yesOrNoEnabled" [(ngModel)]="searchOperateur.enabled"
+                                            [filter]="false" [showClear]="true"  placeholder="Enabled"
+                                                 optionLabel="label" optionValue="value">
+                                    </p-dropdown>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <p-dropdown  id="4" [options]="yesOrNoAccountNonExpired" [(ngModel)]="searchOperateur.accountNonExpired"
+                                            [filter]="false" [showClear]="true"  placeholder="Account non expired"
+                                                 optionLabel="label" optionValue="value">
+                                    </p-dropdown>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <p-dropdown  id="5" [options]="yesOrNoAccountNonLocked" [(ngModel)]="searchOperateur.accountNonLocked"
+                                            [filter]="false" [showClear]="true"  placeholder="Account non locked"
+                                                 optionLabel="label" optionValue="value">
+                                    </p-dropdown>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <p-dropdown  id="6" [options]="yesOrNoPasswordChanged" [(ngModel)]="searchOperateur.passwordChanged"
+                                            [filter]="false" [showClear]="true"  placeholder="Password changed"
+                                                 optionLabel="label" optionValue="value">
+                                    </p-dropdown>
+                                </span>
+
+                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                            <p-calendar
+                                    class="p-mr-2" [(ngModel)]="searchOperateur.createdAtMin"
+                                    id="7-1"
+                                    dateFormat="dd-MM-yy"></p-calendar>
+                            <label for="7-1">Created at Min</label>
+                        </span>
+
+                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                            <p-calendar
+                                    class="p-mr-2" [(ngModel)]="searchOperateur.createdAtMax"
+                                    id="7-2"
+                                    dateFormat="dd-MM-yy"></p-calendar>
+                            <label for="7-2">Created at Max</label>
+                        </span>
+
+
+                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                            <p-calendar
+                                    class="p-mr-2" [(ngModel)]="searchOperateur.updatedAtMin"
+                                    id="8-1"
+                                    dateFormat="dd-MM-yy"></p-calendar>
+                            <label for="8-1">Updated at Min</label>
+                        </span>
+
+                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                            <p-calendar
+                                    class="p-mr-2" [(ngModel)]="searchOperateur.updatedAtMax"
+                                    id="8-2"
+                                    dateFormat="dd-MM-yy"></p-calendar>
+                            <label for="8-2">Updated at Max</label>
+                        </span>
+
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="9"
+                                           type="text"  [(ngModel)]="searchOperateur.username">
+                                    <label for="9">Username</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="10"
+                                           type="text"  [(ngModel)]="searchOperateur.password">
+                                    <label for="10">Password</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="11"
+                                           type="text"  [(ngModel)]="searchOperateur.prenom">
+                                    <label for="11">Prenom</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="12"
+                                           type="text"  [(ngModel)]="searchOperateur.nom">
+                                    <label for="12">Nom</label>
+                                </span>
+                </div>
+
+                <div class="align-search-button">
+                    <button pButton pRipple label="Valider" icon="pi pi-sort-amount-down"
+                            class="p-button-info p-mr-2" (click)="searchRequest()"></button>
+                </div>
+            </p-toolbar>
+
+
+            <p-table #dt [value]="operateurs" [columns]="cols" [rows]="8" [paginator]="true"
+                    [globalFilterFields]="['description', 'credentialsNonExpired', 'enabled', 'accountNonExpired', 'accountNonLocked', 'passwordChanged', 'createdAt', 'updatedAt', 'username', 'password', 'prenom', 'nom']" [(selection)]="selectedOperateur"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                                      currentPageReportTemplate="Les éléments de {first} à {last} sur {total records} "
+                    [showCurrentPageReport]="true"   [rowsPerPageOptions]="[8,25,50]">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header">
+                        <h5 class="p-m-0">Liste des operateurs</h5>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="Chercher..." (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+
+                                
+                                <th pSortableColumn="description">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Description</span>
+                                        <p-sortIcon field="description"></p-sortIcon>
+                                        <p-columnFilter type="text" field="operateur.description" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="credentialsNonExpired">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Credentials non expired</span>
+                                        <p-sortIcon field="credentialsNonExpired"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="enabled">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Enabled</span>
+                                        <p-sortIcon field="enabled"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="accountNonExpired">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Account non expired</span>
+                                        <p-sortIcon field="accountNonExpired"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="accountNonLocked">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Account non locked</span>
+                                        <p-sortIcon field="accountNonLocked"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="passwordChanged">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Password changed</span>
+                                        <p-sortIcon field="passwordChanged"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="createdAt">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Created at</span>
+                                        <p-sortIcon field="createdAt"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="updatedAt">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Updated at</span>
+                                        <p-sortIcon field="updatedAt"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="username">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Username</span>
+                                        <p-sortIcon field="username"></p-sortIcon>
+                                        <p-columnFilter type="text" field="operateur.username" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                <!-- 
+                                <th pSortableColumn="password">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Password</span>
+                                        <p-sortIcon field="password"></p-sortIcon>
+                                        <p-columnFilter type="text" field="operateur.password" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="prenom">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Prenom</span>
+                                        <p-sortIcon field="prenom"></p-sortIcon>
+                                        <p-columnFilter type="text" field="operateur.prenom" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="nom">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Nom</span>
+                                        <p-sortIcon field="nom"></p-sortIcon>
+                                        <p-columnFilter type="text" field="operateur.nom" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-operateur>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="operateur"></p-tableCheckbox>
+                        </td>
+                            
+                                 <td>{{operateur.description}}</td>
+                            
+
+                            
+                                <td><i *ngIf="operateur.credentialsNonExpired" class="pi pi-check checked-toogle"></i>
+                                    <i *ngIf="!operateur.credentialsNonExpired" class="pi pi-times unchecked-toogle"></i>
+                                </td>
+                            
+
+                            
+                                <td><i *ngIf="operateur.enabled" class="pi pi-check checked-toogle"></i>
+                                    <i *ngIf="!operateur.enabled" class="pi pi-times unchecked-toogle"></i>
+                                </td>
+                            
+
+                            
+                                <td><i *ngIf="operateur.accountNonExpired" class="pi pi-check checked-toogle"></i>
+                                    <i *ngIf="!operateur.accountNonExpired" class="pi pi-times unchecked-toogle"></i>
+                                </td>
+                            
+
+                            
+                                <td><i *ngIf="operateur.accountNonLocked" class="pi pi-check checked-toogle"></i>
+                                    <i *ngIf="!operateur.accountNonLocked" class="pi pi-times unchecked-toogle"></i>
+                                </td>
+                            
+
+                            
+                                <td><i *ngIf="operateur.passwordChanged" class="pi pi-check checked-toogle"></i>
+                                    <i *ngIf="!operateur.passwordChanged" class="pi pi-times unchecked-toogle"></i>
+                                </td>
+                            
+
+                            
+                                <td>{{operateur.createdAt | date :'dd/MM/yyyy HH:mm' }}</td>
+                            
+
+                            
+                                <td>{{operateur.updatedAt | date :'dd/MM/yyyy HH:mm' }}</td>
+                            
+
+                             <!-- 
+                                 <td>{{operateur.username}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{operateur.password}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{operateur.prenom}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{operateur.nom}}</td>
+                             --> 
+
+
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"
+                                    class="p-button-rounded p-button-success p-mr-2"
+                                    (click)="editOperateur(operateur)"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-info p-mr-2"
+                                    (click)="viewOperateur(operateur)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger p-mr-2"
+                                    (click)="deleteOperateur(operateur)"></button>
+
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning"
+                                    (click)="duplicateOperateur(operateur)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale
+                        il {{operateurs ? operateurs.length == 1 ? 'y a' : 'y a' : 'y a' }} {{operateurs ? operateurs.length : 0 }} {{operateurs ? operateurs.length == 1 ? 'operateur' : 'operateurs' : 0 }}
+                        .
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-operateur-create-operateur></app-operateur-create-operateur>
+        <app-operateur-edit-operateur></app-operateur-edit-operateur>
+        <app-operateur-view-operateur></app-operateur-view-operateur>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>

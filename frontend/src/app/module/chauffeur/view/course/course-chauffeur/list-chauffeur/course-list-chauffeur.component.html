@@ -1,0 +1,566 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                                            <button pButton pRipple label="Nouveau" icon="pi pi-plus" class="p-button-success p-mr-2 p-mb-2"
+                                (click)="openCreateCourse('course')"></button>
+
+
+                    <button pButton pRipple label="Chercher"
+                            icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}"
+                            class="p-button-success p-mr-2 p-mb-2"
+                            (click)="this.findByCriteriaShow = !this.findByCriteriaShow"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label="Exporter" icon="pi pi-download" styleClass="p-button-help" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="align-form-search">
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="secteurSources" [(ngModel)]="searchCourse.secteurSourceVo"
+                                        id="5"
+                                        [filter]="true" [showClear]="true"  placeholder="Secteur source"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="secteurDestinations" [(ngModel)]="searchCourse.secteurDestinationVo"
+                                        id="6"
+                                        [filter]="true" [showClear]="true"  placeholder="Secteur destination"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="moyenTransports" [(ngModel)]="searchCourse.moyenTransportVo"
+                                        id="7"
+                                        [filter]="true" [showClear]="true"  placeholder="Moyen transport"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchCourse.nombrePlaceMin"
+                                                             id="8-1"></p-inputNumber>
+                                              <label for="8-1">Nombre place Min</label>
+                                       </span>
+                                       <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchCourse.nombrePlaceMax"
+                                                             id="8-2"></p-inputNumber>
+                                             <label for="8-2">Nombre place Max</label>
+                                       </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="operateurs" [(ngModel)]="searchCourse.operateurVo"
+                                        id="9"
+                                        [filter]="true" [showClear]="true"  placeholder="Operateur"
+                                        optionLabel="description">
+                                </p-dropdown>
+                            </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="clients" [(ngModel)]="searchCourse.clientVo"
+                                        id="10"
+                                        [filter]="true" [showClear]="true"  placeholder="Client"
+                                        optionLabel="description">
+                                </p-dropdown>
+                            </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="chauffeurs" [(ngModel)]="searchCourse.chauffeurVo"
+                                        id="11"
+                                        [filter]="true" [showClear]="true"  placeholder="Chauffeur"
+                                        optionLabel="id">
+                                </p-dropdown>
+                            </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="12"
+                                           type="text"  [(ngModel)]="searchCourse.telephone">
+                                    <label for="12">Telephone</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="13"
+                                           type="text"  [(ngModel)]="searchCourse.commentaire">
+                                    <label for="13">Commentaire</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="14"
+                                           type="text"  [(ngModel)]="searchCourse.noteInterne">
+                                    <label for="14">Note interne</label>
+                                </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="etatCourses" [(ngModel)]="searchCourse.etatCourseVo"
+                                        id="15"
+                                        [filter]="true" [showClear]="true"  placeholder="Etat course"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="16"
+                                           type="text"  [(ngModel)]="searchCourse.adresseDepart">
+                                    <label for="16">Adresse depart</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="17"
+                                           type="text"  [(ngModel)]="searchCourse.noteDepart">
+                                    <label for="17">Note depart</label>
+                                </span>
+                                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchCourse.altitudeDepartMin"
+                                                             id="18-1"></p-inputNumber>
+                                              <label for="18-1">Altitude depart Min</label>
+                                       </span>
+                                       <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchCourse.altitudeDepartMax"
+                                                             id="18-2"></p-inputNumber>
+                                             <label for="18-2">Altitude depart Max</label>
+                                       </span>
+                                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchCourse.longitudeDepartMin"
+                                                             id="19-1"></p-inputNumber>
+                                              <label for="19-1">Longitude depart Min</label>
+                                       </span>
+                                       <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchCourse.longitudeDepartMax"
+                                                             id="19-2"></p-inputNumber>
+                                             <label for="19-2">Longitude depart Max</label>
+                                       </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="20"
+                                           type="text"  [(ngModel)]="searchCourse.adresseArrive">
+                                    <label for="20">Adresse arrive</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="21"
+                                           type="text"  [(ngModel)]="searchCourse.noteArrive">
+                                    <label for="21">Note arrive</label>
+                                </span>
+                                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchCourse.altitudeArriveMin"
+                                                             id="22-1"></p-inputNumber>
+                                              <label for="22-1">Altitude arrive Min</label>
+                                       </span>
+                                       <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchCourse.altitudeArriveMax"
+                                                             id="22-2"></p-inputNumber>
+                                             <label for="22-2">Altitude arrive Max</label>
+                                       </span>
+                                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchCourse.longitudeArriveMin"
+                                                             id="23-1"></p-inputNumber>
+                                              <label for="23-1">Longitude arrive Min</label>
+                                       </span>
+                                       <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchCourse.longitudeArriveMax"
+                                                             id="23-2"></p-inputNumber>
+                                             <label for="23-2">Longitude arrive Max</label>
+                                       </span>
+                </div>
+
+                <div class="align-search-button">
+                    <button pButton pRipple label="Valider" icon="pi pi-sort-amount-down"
+                            class="p-button-info p-mr-2" (click)="searchRequest()"></button>
+                </div>
+            </p-toolbar>
+
+
+            <p-table #dt [value]="courses" [columns]="cols" [rows]="8" [paginator]="true"
+                    [globalFilterFields]="['dateDemandeCourse', 'dateReponseChauffeur', 'dateArriveChauffeur', 'dateArriveClient', 'secteurSourceVolibelle', 'secteurDestinationVolibelle', 'moyenTransportVolibelle', 'nombrePlace', 'operateurVodescription', 'clientVodescription', 'chauffeurVoid', 'telephone', 'commentaire', 'noteInterne', 'etatCourseVolibelle', 'adresseDepart', 'noteDepart', 'altitudeDepart', 'longitudeDepart', 'adresseArrive', 'noteArrive', 'altitudeArrive', 'longitudeArrive']" [(selection)]="selectedCourse"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                                      currentPageReportTemplate="Les éléments de {first} à {last} sur {total records} "
+                    [showCurrentPageReport]="true"   [rowsPerPageOptions]="[8,25,50]">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header">
+                        <h5 class="p-m-0">Liste des courses</h5>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="Chercher..." (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+
+                                
+                                <th pSortableColumn="dateDemandeCourse">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Date demande course</span>
+                                        <p-sortIcon field="dateDemandeCourse"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="dateReponseChauffeur">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Date reponse chauffeur</span>
+                                        <p-sortIcon field="dateReponseChauffeur"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="dateArriveChauffeur">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Date arrive chauffeur</span>
+                                        <p-sortIcon field="dateArriveChauffeur"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="dateArriveClient">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Date arrive client</span>
+                                        <p-sortIcon field="dateArriveClient"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="secteurSource">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Secteur source</span>
+                                        <p-sortIcon field="secteurSource"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="secteurDestination">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Secteur destination</span>
+                                        <p-sortIcon field="secteurDestination"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="moyenTransport">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Moyen transport</span>
+                                        <p-sortIcon field="moyenTransport"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="nombrePlace">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Nombre place</span>
+                                        <p-sortIcon field="nombrePlace"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="operateur">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Operateur</span>
+                                        <p-sortIcon field="operateur"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                <!-- 
+                                <th pSortableColumn="client">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Client</span>
+                                        <p-sortIcon field="client"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="chauffeur">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Chauffeur</span>
+                                        <p-sortIcon field="chauffeur"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="telephone">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Telephone</span>
+                                        <p-sortIcon field="telephone"></p-sortIcon>
+                                        <p-columnFilter type="text" field="course.telephone" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="commentaire">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Commentaire</span>
+                                        <p-sortIcon field="commentaire"></p-sortIcon>
+                                        <p-columnFilter type="text" field="course.commentaire" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="noteInterne">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Note interne</span>
+                                        <p-sortIcon field="noteInterne"></p-sortIcon>
+                                        <p-columnFilter type="text" field="course.noteInterne" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="etatCourse">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Etat course</span>
+                                        <p-sortIcon field="etatCourse"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="adresseDepart">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Adresse depart</span>
+                                        <p-sortIcon field="adresseDepart"></p-sortIcon>
+                                        <p-columnFilter type="text" field="course.adresseDepart" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="noteDepart">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Note depart</span>
+                                        <p-sortIcon field="noteDepart"></p-sortIcon>
+                                        <p-columnFilter type="text" field="course.noteDepart" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="altitudeDepart">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Altitude depart</span>
+                                        <p-sortIcon field="altitudeDepart"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="longitudeDepart">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Longitude depart</span>
+                                        <p-sortIcon field="longitudeDepart"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="adresseArrive">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Adresse arrive</span>
+                                        <p-sortIcon field="adresseArrive"></p-sortIcon>
+                                        <p-columnFilter type="text" field="course.adresseArrive" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="noteArrive">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Note arrive</span>
+                                        <p-sortIcon field="noteArrive"></p-sortIcon>
+                                        <p-columnFilter type="text" field="course.noteArrive" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="altitudeArrive">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Altitude arrive</span>
+                                        <p-sortIcon field="altitudeArrive"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="longitudeArrive">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Longitude arrive</span>
+                                        <p-sortIcon field="longitudeArrive"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-course>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="course"></p-tableCheckbox>
+                        </td>
+                            
+                                 <td>{{course.dateDemandeCourse}}</td>
+                            
+
+                            
+                                 <td>{{course.dateReponseChauffeur}}</td>
+                            
+
+                            
+                                 <td>{{course.dateArriveChauffeur}}</td>
+                            
+
+                            
+                                 <td>{{course.dateArriveClient}}</td>
+                            
+
+                            
+                                <td>{{course.secteurSourceVo?.libelle}}</td>
+                            
+
+                            
+                                <td>{{course.secteurDestinationVo?.libelle}}</td>
+                            
+
+                            
+                                <td>{{course.moyenTransportVo?.libelle}}</td>
+                            
+
+                            
+                                 <td>{{course.nombrePlace}}</td>
+                            
+
+                             <!-- 
+                                <td>{{course.operateurVo?.description}}</td>
+                             --> 
+
+                             <!-- 
+                                <td>{{course.clientVo?.description}}</td>
+                             --> 
+
+                             <!-- 
+                                <td>{{course.chauffeurVo?.id}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{course.telephone}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{course.commentaire}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{course.noteInterne}}</td>
+                             --> 
+
+                             <!-- 
+                                <td>{{course.etatCourseVo?.libelle}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{course.adresseDepart}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{course.noteDepart}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{course.altitudeDepart}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{course.longitudeDepart}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{course.adresseArrive}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{course.noteArrive}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{course.altitudeArrive}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{course.longitudeArrive}}</td>
+                             --> 
+
+
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"
+                                    class="p-button-rounded p-button-success p-mr-2"
+                                    (click)="editCourse(course)"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-info p-mr-2"
+                                    (click)="viewCourse(course)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger p-mr-2"
+                                    (click)="deleteCourse(course)"></button>
+
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning"
+                                    (click)="duplicateCourse(course)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale
+                        il {{courses ? courses.length == 1 ? 'y a' : 'y a' : 'y a' }} {{courses ? courses.length : 0 }} {{courses ? courses.length == 1 ? 'course' : 'courses' : 0 }}
+                        .
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-course-create-chauffeur></app-course-create-chauffeur>
+        <app-course-edit-chauffeur></app-course-edit-chauffeur>
+        <app-course-view-chauffeur></app-course-view-chauffeur>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>

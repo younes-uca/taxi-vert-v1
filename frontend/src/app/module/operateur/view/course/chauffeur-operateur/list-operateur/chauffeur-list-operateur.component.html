@@ -1,0 +1,697 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                                            <button pButton pRipple label="Nouveau" icon="pi pi-plus" class="p-button-success p-mr-2 p-mb-2"
+                                (click)="openCreateChauffeur('chauffeur')"></button>
+
+
+                    <button pButton pRipple label="Chercher"
+                            icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}"
+                            class="p-button-success p-mr-2 p-mb-2"
+                            (click)="this.findByCriteriaShow = !this.findByCriteriaShow"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label="Exporter" icon="pi pi-download" styleClass="p-button-help" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="align-form-search">
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="1"
+                                           type="text"  [(ngModel)]="searchChauffeur.matricule">
+                                    <label for="1">Matricule</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="2"
+                                           type="text"  [(ngModel)]="searchChauffeur.mobile">
+                                    <label for="2">Mobile</label>
+                                </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="moyenTransports" [(ngModel)]="searchChauffeur.moyenTransportVo"
+                                        id="3"
+                                        [filter]="true" [showClear]="true"  placeholder="Moyen transport"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="modelApplications" [(ngModel)]="searchChauffeur.modelApplicationVo"
+                                        id="4"
+                                        [filter]="true" [showClear]="true"  placeholder="Model application"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="marqueTelephones" [(ngModel)]="searchChauffeur.marqueTelephoneVo"
+                                        id="5"
+                                        [filter]="true" [showClear]="true"  placeholder="Marque telephone"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="marqueVoitures" [(ngModel)]="searchChauffeur.marqueVoitureVo"
+                                        id="6"
+                                        [filter]="true" [showClear]="true"  placeholder="Marque voiture"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="etatChauffeurs" [(ngModel)]="searchChauffeur.etatChauffeurVo"
+                                        id="7"
+                                        [filter]="true" [showClear]="true"  placeholder="Etat chauffeur"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="villes" [(ngModel)]="searchChauffeur.villeVo"
+                                        id="8"
+                                        [filter]="true" [showClear]="true"  placeholder="Ville"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="9"
+                                           type="text"  [(ngModel)]="searchChauffeur.codePostale">
+                                    <label for="9">Code postale</label>
+                                </span>
+                                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchChauffeur.nombrePlaceMin"
+                                                             id="10-1"></p-inputNumber>
+                                              <label for="10-1">Nombre place Min</label>
+                                       </span>
+                                       <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchChauffeur.nombrePlaceMax"
+                                                             id="10-2"></p-inputNumber>
+                                             <label for="10-2">Nombre place Max</label>
+                                       </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="11"
+                                           type="text"  [(ngModel)]="searchChauffeur.imageVoiture">
+                                    <label for="11">Image voiture</label>
+                                </span>
+                                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchChauffeur.orderAffichageMin"
+                                                             id="12-1"></p-inputNumber>
+                                              <label for="12-1">Order affichage Min</label>
+                                       </span>
+                                       <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchChauffeur.orderAffichageMax"
+                                                             id="12-2"></p-inputNumber>
+                                             <label for="12-2">Order affichage Max</label>
+                                       </span>
+                                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchChauffeur.altitudeActuelleMin"
+                                                             id="13-1"></p-inputNumber>
+                                              <label for="13-1">Altitude actuelle Min</label>
+                                       </span>
+                                       <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchChauffeur.altitudeActuelleMax"
+                                                             id="13-2"></p-inputNumber>
+                                             <label for="13-2">Altitude actuelle Max</label>
+                                       </span>
+                                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchChauffeur.longitudeActuelleMin"
+                                                             id="14-1"></p-inputNumber>
+                                              <label for="14-1">Longitude actuelle Min</label>
+                                       </span>
+                                       <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                              <p-inputNumber class="p-mr-2"
+                                                             mode="decimal" [(ngModel)]="searchChauffeur.longitudeActuelleMax"
+                                                             id="14-2"></p-inputNumber>
+                                             <label for="14-2">Longitude actuelle Max</label>
+                                       </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="langues" [(ngModel)]="searchChauffeur.langueVo"
+                                        id="15"
+                                        [filter]="true" [showClear]="true"  placeholder="Langue"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="themes" [(ngModel)]="searchChauffeur.themeVo"
+                                        id="16"
+                                        [filter]="true" [showClear]="true"  placeholder="Theme"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <p-dropdown  id="17" [options]="yesOrNoCredentialsNonExpired" [(ngModel)]="searchChauffeur.credentialsNonExpired"
+                                            [filter]="false" [showClear]="true"  placeholder="Credentials non expired"
+                                                 optionLabel="label" optionValue="value">
+                                    </p-dropdown>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <p-dropdown  id="18" [options]="yesOrNoEnabled" [(ngModel)]="searchChauffeur.enabled"
+                                            [filter]="false" [showClear]="true"  placeholder="Enabled"
+                                                 optionLabel="label" optionValue="value">
+                                    </p-dropdown>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <p-dropdown  id="19" [options]="yesOrNoAccountNonExpired" [(ngModel)]="searchChauffeur.accountNonExpired"
+                                            [filter]="false" [showClear]="true"  placeholder="Account non expired"
+                                                 optionLabel="label" optionValue="value">
+                                    </p-dropdown>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <p-dropdown  id="20" [options]="yesOrNoAccountNonLocked" [(ngModel)]="searchChauffeur.accountNonLocked"
+                                            [filter]="false" [showClear]="true"  placeholder="Account non locked"
+                                                 optionLabel="label" optionValue="value">
+                                    </p-dropdown>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <p-dropdown  id="21" [options]="yesOrNoPasswordChanged" [(ngModel)]="searchChauffeur.passwordChanged"
+                                            [filter]="false" [showClear]="true"  placeholder="Password changed"
+                                                 optionLabel="label" optionValue="value">
+                                    </p-dropdown>
+                                </span>
+
+                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                            <p-calendar
+                                    class="p-mr-2" [(ngModel)]="searchChauffeur.createdAtMin"
+                                    id="22-1"
+                                    dateFormat="dd-MM-yy"></p-calendar>
+                            <label for="22-1">Created at Min</label>
+                        </span>
+
+                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                            <p-calendar
+                                    class="p-mr-2" [(ngModel)]="searchChauffeur.createdAtMax"
+                                    id="22-2"
+                                    dateFormat="dd-MM-yy"></p-calendar>
+                            <label for="22-2">Created at Max</label>
+                        </span>
+
+
+                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                            <p-calendar
+                                    class="p-mr-2" [(ngModel)]="searchChauffeur.updatedAtMin"
+                                    id="23-1"
+                                    dateFormat="dd-MM-yy"></p-calendar>
+                            <label for="23-1">Updated at Min</label>
+                        </span>
+
+                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                            <p-calendar
+                                    class="p-mr-2" [(ngModel)]="searchChauffeur.updatedAtMax"
+                                    id="23-2"
+                                    dateFormat="dd-MM-yy"></p-calendar>
+                            <label for="23-2">Updated at Max</label>
+                        </span>
+
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="24"
+                                           type="text"  [(ngModel)]="searchChauffeur.username">
+                                    <label for="24">Username</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="25"
+                                           type="text"  [(ngModel)]="searchChauffeur.password">
+                                    <label for="25">Password</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="26"
+                                           type="text"  [(ngModel)]="searchChauffeur.prenom">
+                                    <label for="26">Prenom</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="27"
+                                           type="text"  [(ngModel)]="searchChauffeur.nom">
+                                    <label for="27">Nom</label>
+                                </span>
+                </div>
+
+                <div class="align-search-button">
+                    <button pButton pRipple label="Valider" icon="pi pi-sort-amount-down"
+                            class="p-button-info p-mr-2" (click)="searchRequest()"></button>
+                </div>
+            </p-toolbar>
+
+
+            <p-table #dt [value]="chauffeurs" [columns]="cols" [rows]="8" [paginator]="true"
+                    [globalFilterFields]="['matricule', 'mobile', 'moyenTransportVolibelle', 'modelApplicationVolibelle', 'marqueTelephoneVolibelle', 'marqueVoitureVolibelle', 'etatChauffeurVolibelle', 'villeVolibelle', 'codePostale', 'nombrePlace', 'imageVoiture', 'orderAffichage', 'altitudeActuelle', 'longitudeActuelle', 'langueVolibelle', 'themeVolibelle', 'credentialsNonExpired', 'enabled', 'accountNonExpired', 'accountNonLocked', 'passwordChanged', 'createdAt', 'updatedAt', 'username', 'password', 'prenom', 'nom']" [(selection)]="selectedChauffeur"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                                      currentPageReportTemplate="Les éléments de {first} à {last} sur {total records} "
+                    [showCurrentPageReport]="true"   [rowsPerPageOptions]="[8,25,50]">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header">
+                        <h5 class="p-m-0">Liste des chauffeurs</h5>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="Chercher..." (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+
+                                
+                                <th pSortableColumn="matricule">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Matricule</span>
+                                        <p-sortIcon field="matricule"></p-sortIcon>
+                                        <p-columnFilter type="text" field="chauffeur.matricule" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="mobile">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Mobile</span>
+                                        <p-sortIcon field="mobile"></p-sortIcon>
+                                        <p-columnFilter type="text" field="chauffeur.mobile" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="moyenTransport">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Moyen transport</span>
+                                        <p-sortIcon field="moyenTransport"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="modelApplication">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Model application</span>
+                                        <p-sortIcon field="modelApplication"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="marqueTelephone">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Marque telephone</span>
+                                        <p-sortIcon field="marqueTelephone"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="marqueVoiture">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Marque voiture</span>
+                                        <p-sortIcon field="marqueVoiture"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="etatChauffeur">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Etat chauffeur</span>
+                                        <p-sortIcon field="etatChauffeur"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="ville">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Ville</span>
+                                        <p-sortIcon field="ville"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="codePostale">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Code postale</span>
+                                        <p-sortIcon field="codePostale"></p-sortIcon>
+                                        <p-columnFilter type="text" field="chauffeur.codePostale" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                <!-- 
+                                <th pSortableColumn="nombrePlace">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Nombre place</span>
+                                        <p-sortIcon field="nombrePlace"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="imageVoiture">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Image voiture</span>
+                                        <p-sortIcon field="imageVoiture"></p-sortIcon>
+                                        <p-columnFilter type="text" field="chauffeur.imageVoiture" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="orderAffichage">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Order affichage</span>
+                                        <p-sortIcon field="orderAffichage"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="altitudeActuelle">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Altitude actuelle</span>
+                                        <p-sortIcon field="altitudeActuelle"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="longitudeActuelle">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Longitude actuelle</span>
+                                        <p-sortIcon field="longitudeActuelle"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="langue">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Langue</span>
+                                        <p-sortIcon field="langue"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="theme">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Theme</span>
+                                        <p-sortIcon field="theme"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="credentialsNonExpired">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Credentials non expired</span>
+                                        <p-sortIcon field="credentialsNonExpired"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="enabled">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Enabled</span>
+                                        <p-sortIcon field="enabled"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="accountNonExpired">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Account non expired</span>
+                                        <p-sortIcon field="accountNonExpired"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="accountNonLocked">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Account non locked</span>
+                                        <p-sortIcon field="accountNonLocked"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="passwordChanged">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Password changed</span>
+                                        <p-sortIcon field="passwordChanged"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="createdAt">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Created at</span>
+                                        <p-sortIcon field="createdAt"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="updatedAt">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Updated at</span>
+                                        <p-sortIcon field="updatedAt"></p-sortIcon>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="username">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Username</span>
+                                        <p-sortIcon field="username"></p-sortIcon>
+                                        <p-columnFilter type="text" field="chauffeur.username" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="password">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Password</span>
+                                        <p-sortIcon field="password"></p-sortIcon>
+                                        <p-columnFilter type="text" field="chauffeur.password" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="prenom">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Prenom</span>
+                                        <p-sortIcon field="prenom"></p-sortIcon>
+                                        <p-columnFilter type="text" field="chauffeur.prenom" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                                <!-- 
+                                <th pSortableColumn="nom">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Nom</span>
+                                        <p-sortIcon field="nom"></p-sortIcon>
+                                        <p-columnFilter type="text" field="chauffeur.nom" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                --> 
+
+
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-chauffeur>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="chauffeur"></p-tableCheckbox>
+                        </td>
+                            
+                                 <td>{{chauffeur.matricule}}</td>
+                            
+
+                            
+                                 <td>{{chauffeur.mobile}}</td>
+                            
+
+                            
+                                <td>{{chauffeur.moyenTransportVo?.libelle}}</td>
+                            
+
+                            
+                                <td>{{chauffeur.modelApplicationVo?.libelle}}</td>
+                            
+
+                            
+                                <td>{{chauffeur.marqueTelephoneVo?.libelle}}</td>
+                            
+
+                            
+                                <td>{{chauffeur.marqueVoitureVo?.libelle}}</td>
+                            
+
+                            
+                                <td>{{chauffeur.etatChauffeurVo?.libelle}}</td>
+                            
+
+                            
+                                <td>{{chauffeur.villeVo?.libelle}}</td>
+                            
+
+                             <!-- 
+                                 <td>{{chauffeur.codePostale}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{chauffeur.nombrePlace}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{chauffeur.imageVoiture}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{chauffeur.orderAffichage}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{chauffeur.altitudeActuelle}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{chauffeur.longitudeActuelle}}</td>
+                             --> 
+
+                             <!-- 
+                                <td>{{chauffeur.langueVo?.libelle}}</td>
+                             --> 
+
+                             <!-- 
+                                <td>{{chauffeur.themeVo?.libelle}}</td>
+                             --> 
+
+                             <!-- 
+                                <td><i *ngIf="chauffeur.credentialsNonExpired" class="pi pi-check checked-toogle"></i>
+                                    <i *ngIf="!chauffeur.credentialsNonExpired" class="pi pi-times unchecked-toogle"></i>
+                                </td>
+                             --> 
+
+                             <!-- 
+                                <td><i *ngIf="chauffeur.enabled" class="pi pi-check checked-toogle"></i>
+                                    <i *ngIf="!chauffeur.enabled" class="pi pi-times unchecked-toogle"></i>
+                                </td>
+                             --> 
+
+                             <!-- 
+                                <td><i *ngIf="chauffeur.accountNonExpired" class="pi pi-check checked-toogle"></i>
+                                    <i *ngIf="!chauffeur.accountNonExpired" class="pi pi-times unchecked-toogle"></i>
+                                </td>
+                             --> 
+
+                             <!-- 
+                                <td><i *ngIf="chauffeur.accountNonLocked" class="pi pi-check checked-toogle"></i>
+                                    <i *ngIf="!chauffeur.accountNonLocked" class="pi pi-times unchecked-toogle"></i>
+                                </td>
+                             --> 
+
+                             <!-- 
+                                <td><i *ngIf="chauffeur.passwordChanged" class="pi pi-check checked-toogle"></i>
+                                    <i *ngIf="!chauffeur.passwordChanged" class="pi pi-times unchecked-toogle"></i>
+                                </td>
+                             --> 
+
+                             <!-- 
+                                <td>{{chauffeur.createdAt | date :'dd/MM/yyyy HH:mm' }}</td>
+                             --> 
+
+                             <!-- 
+                                <td>{{chauffeur.updatedAt | date :'dd/MM/yyyy HH:mm' }}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{chauffeur.username}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{chauffeur.password}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{chauffeur.prenom}}</td>
+                             --> 
+
+                             <!-- 
+                                 <td>{{chauffeur.nom}}</td>
+                             --> 
+
+
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"
+                                    class="p-button-rounded p-button-success p-mr-2"
+                                    (click)="editChauffeur(chauffeur)"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-info p-mr-2"
+                                    (click)="viewChauffeur(chauffeur)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger p-mr-2"
+                                    (click)="deleteChauffeur(chauffeur)"></button>
+
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning"
+                                    (click)="duplicateChauffeur(chauffeur)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale
+                        il {{chauffeurs ? chauffeurs.length == 1 ? 'y a' : 'y a' : 'y a' }} {{chauffeurs ? chauffeurs.length : 0 }} {{chauffeurs ? chauffeurs.length == 1 ? 'chauffeur' : 'chauffeurs' : 0 }}
+                        .
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-chauffeur-create-operateur></app-chauffeur-create-operateur>
+        <app-chauffeur-edit-operateur></app-chauffeur-edit-operateur>
+        <app-chauffeur-view-operateur></app-chauffeur-view-operateur>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>

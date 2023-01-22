@@ -1,0 +1,434 @@
+{
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des villes': 'Liste des villes',
+    'Chercher...': 'Chercher...',
+    'Ville': 'Ville',
+
+
+        'Id': 'Id',
+            'Libelle': 'Libelle',
+
+        'Libelle': 'Libelle',
+            'Code': 'Code',
+
+        'Code': 'Code',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des chauffeurs': 'Liste des chauffeurs',
+    'Chercher...': 'Chercher...',
+    'Chauffeur': 'Chauffeur',
+
+
+        'Id': 'Id',
+            'Matricule': 'Matricule',
+
+        'Matricule': 'Matricule',
+            'Mobile': 'Mobile',
+
+        'Mobile': 'Mobile',
+            'Moyen transport': 'Moyen transport',
+
+        'Moyen transport': 'Moyen transport',
+            'Model application': 'Model application',
+
+        'Model application': 'Model application',
+            'Marque telephone': 'Marque telephone',
+
+        'Marque telephone': 'Marque telephone',
+            'Marque voiture': 'Marque voiture',
+
+        'Marque voiture': 'Marque voiture',
+            'Etat chauffeur': 'Etat chauffeur',
+
+        'Etat chauffeur': 'Etat chauffeur',
+            'Ville': 'Ville',
+
+        'Ville': 'Ville',
+            'Code postale': 'Code postale',
+
+        'Code postale': 'Code postale',
+            'Nombre place': 'Nombre place',
+
+        'Nombre place': 'Nombre place',
+            'Image voiture': 'Image voiture',
+
+        'Image voiture': 'Image voiture',
+            'Order affichage': 'Order affichage',
+
+        'Order affichage': 'Order affichage',
+            'Altitude actuelle': 'Altitude actuelle',
+
+        'Altitude actuelle': 'Altitude actuelle',
+            'Longitude actuelle': 'Longitude actuelle',
+
+        'Longitude actuelle': 'Longitude actuelle',
+            'Langue': 'Langue',
+
+        'Langue': 'Langue',
+            'Theme': 'Theme',
+
+        'Theme': 'Theme',
+            'Credentials non expired': 'Credentials non expired',
+
+        'Credentials non expired': 'Credentials non expired',
+            'Enabled': 'Enabled',
+
+        'Enabled': 'Enabled',
+            'Account non expired': 'Account non expired',
+
+        'Account non expired': 'Account non expired',
+            'Account non locked': 'Account non locked',
+
+        'Account non locked': 'Account non locked',
+            'Password changed': 'Password changed',
+
+        'Password changed': 'Password changed',
+            'Created at': 'Created at',
+
+        'Created at': 'Created at',
+            'Updated at': 'Updated at',
+
+        'Updated at': 'Updated at',
+            'Username': 'Username',
+
+        'Username': 'Username',
+            'Password': 'Password',
+
+        'Password': 'Password',
+            'Prenom': 'Prenom',
+
+        'Prenom': 'Prenom',
+            'Nom': 'Nom',
+
+        'Nom': 'Nom',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des moyen transports': 'Liste des moyen transports',
+    'Chercher...': 'Chercher...',
+    'Moyen transport': 'Moyen transport',
+
+
+        'Id': 'Id',
+            'Libelle': 'Libelle',
+
+        'Libelle': 'Libelle',
+            'Code': 'Code',
+
+        'Code': 'Code',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des langues': 'Liste des langues',
+    'Chercher...': 'Chercher...',
+    'Langue': 'Langue',
+
+
+        'Id': 'Id',
+            'Libelle': 'Libelle',
+
+        'Libelle': 'Libelle',
+            'Code': 'Code',
+
+        'Code': 'Code',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des black list chauffeurs': 'Liste des black list chauffeurs',
+    'Chercher...': 'Chercher...',
+    'Black list chauffeur': 'Black list chauffeur',
+
+
+        'Id': 'Id',
+            'Chauffeur': 'Chauffeur',
+
+        'Chauffeur': 'Chauffeur',
+            'Client': 'Client',
+
+        'Client': 'Client',
+            'Date black list': 'Date black list',
+
+        'Date black list': 'Date black list',
+            'Commentaire': 'Commentaire',
+
+        'Commentaire': 'Commentaire',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des clients': 'Liste des clients',
+    'Chercher...': 'Chercher...',
+    'Client': 'Client',
+
+
+        'Id': 'Id',
+            'Description': 'Description',
+
+        'Description': 'Description',
+            'Langue': 'Langue',
+
+        'Langue': 'Langue',
+            'Theme': 'Theme',
+
+        'Theme': 'Theme',
+            'Credentials non expired': 'Credentials non expired',
+
+        'Credentials non expired': 'Credentials non expired',
+            'Enabled': 'Enabled',
+
+        'Enabled': 'Enabled',
+            'Account non expired': 'Account non expired',
+
+        'Account non expired': 'Account non expired',
+            'Account non locked': 'Account non locked',
+
+        'Account non locked': 'Account non locked',
+            'Password changed': 'Password changed',
+
+        'Password changed': 'Password changed',
+            'Created at': 'Created at',
+
+        'Created at': 'Created at',
+            'Updated at': 'Updated at',
+
+        'Updated at': 'Updated at',
+            'Username': 'Username',
+
+        'Username': 'Username',
+            'Password': 'Password',
+
+        'Password': 'Password',
+            'Prenom': 'Prenom',
+
+        'Prenom': 'Prenom',
+            'Nom': 'Nom',
+
+        'Nom': 'Nom',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des marque telephones': 'Liste des marque telephones',
+    'Chercher...': 'Chercher...',
+    'Marque telephone': 'Marque telephone',
+
+
+        'Id': 'Id',
+            'Libelle': 'Libelle',
+
+        'Libelle': 'Libelle',
+            'Code': 'Code',
+
+        'Code': 'Code',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des secteurs': 'Liste des secteurs',
+    'Chercher...': 'Chercher...',
+    'Secteur': 'Secteur',
+
+
+        'Id': 'Id',
+            'Libelle': 'Libelle',
+
+        'Libelle': 'Libelle',
+            'Code': 'Code',
+
+        'Code': 'Code',
+            'Ville': 'Ville',
+
+        'Ville': 'Ville',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des model applications': 'Liste des model applications',
+    'Chercher...': 'Chercher...',
+    'Model application': 'Model application',
+
+
+        'Id': 'Id',
+            'Libelle': 'Libelle',
+
+        'Libelle': 'Libelle',
+            'Code': 'Code',
+
+        'Code': 'Code',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des operateurs': 'Liste des operateurs',
+    'Chercher...': 'Chercher...',
+    'Operateur': 'Operateur',
+
+
+        'Id': 'Id',
+            'Description': 'Description',
+
+        'Description': 'Description',
+            'Credentials non expired': 'Credentials non expired',
+
+        'Credentials non expired': 'Credentials non expired',
+            'Enabled': 'Enabled',
+
+        'Enabled': 'Enabled',
+            'Account non expired': 'Account non expired',
+
+        'Account non expired': 'Account non expired',
+            'Account non locked': 'Account non locked',
+
+        'Account non locked': 'Account non locked',
+            'Password changed': 'Password changed',
+
+        'Password changed': 'Password changed',
+            'Created at': 'Created at',
+
+        'Created at': 'Created at',
+            'Updated at': 'Updated at',
+
+        'Updated at': 'Updated at',
+            'Username': 'Username',
+
+        'Username': 'Username',
+            'Password': 'Password',
+
+        'Password': 'Password',
+            'Prenom': 'Prenom',
+
+        'Prenom': 'Prenom',
+            'Nom': 'Nom',
+
+        'Nom': 'Nom',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des courses': 'Liste des courses',
+    'Chercher...': 'Chercher...',
+    'Course': 'Course',
+
+
+        'Id': 'Id',
+            'Date demande course': 'Date demande course',
+
+        'Date demande course': 'Date demande course',
+            'Date reponse chauffeur': 'Date reponse chauffeur',
+
+        'Date reponse chauffeur': 'Date reponse chauffeur',
+            'Date arrive chauffeur': 'Date arrive chauffeur',
+
+        'Date arrive chauffeur': 'Date arrive chauffeur',
+            'Date arrive client': 'Date arrive client',
+
+        'Date arrive client': 'Date arrive client',
+            'Secteur source': 'Secteur source',
+
+        'Secteur source': 'Secteur source',
+            'Secteur destination': 'Secteur destination',
+
+        'Secteur destination': 'Secteur destination',
+            'Moyen transport': 'Moyen transport',
+
+        'Moyen transport': 'Moyen transport',
+            'Nombre place': 'Nombre place',
+
+        'Nombre place': 'Nombre place',
+            'Operateur': 'Operateur',
+
+        'Operateur': 'Operateur',
+            'Client': 'Client',
+
+        'Client': 'Client',
+            'Chauffeur': 'Chauffeur',
+
+        'Chauffeur': 'Chauffeur',
+            'Telephone': 'Telephone',
+
+        'Telephone': 'Telephone',
+            'Commentaire': 'Commentaire',
+
+        'Commentaire': 'Commentaire',
+            'Note interne': 'Note interne',
+
+        'Note interne': 'Note interne',
+            'Etat course': 'Etat course',
+
+        'Etat course': 'Etat course',
+            'Adresse depart': 'Adresse depart',
+
+        'Adresse depart': 'Adresse depart',
+            'Note depart': 'Note depart',
+
+        'Note depart': 'Note depart',
+            'Altitude depart': 'Altitude depart',
+
+        'Altitude depart': 'Altitude depart',
+            'Longitude depart': 'Longitude depart',
+
+        'Longitude depart': 'Longitude depart',
+            'Adresse arrive': 'Adresse arrive',
+
+        'Adresse arrive': 'Adresse arrive',
+            'Note arrive': 'Note arrive',
+
+        'Note arrive': 'Note arrive',
+            'Altitude arrive': 'Altitude arrive',
+
+        'Altitude arrive': 'Altitude arrive',
+            'Longitude arrive': 'Longitude arrive',
+
+        'Longitude arrive': 'Longitude arrive',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des themes': 'Liste des themes',
+    'Chercher...': 'Chercher...',
+    'Theme': 'Theme',
+
+
+        'Id': 'Id',
+            'Libelle': 'Libelle',
+
+        'Libelle': 'Libelle',
+            'Code': 'Code',
+
+        'Code': 'Code',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des etat chauffeurs': 'Liste des etat chauffeurs',
+    'Chercher...': 'Chercher...',
+    'Etat chauffeur': 'Etat chauffeur',
+
+
+        'Id': 'Id',
+            'Libelle': 'Libelle',
+
+        'Libelle': 'Libelle',
+            'Code': 'Code',
+
+        'Code': 'Code',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des black list clients': 'Liste des black list clients',
+    'Chercher...': 'Chercher...',
+    'Black list client': 'Black list client',
+
+
+        'Id': 'Id',
+            'Chauffeur': 'Chauffeur',
+
+        'Chauffeur': 'Chauffeur',
+            'Client': 'Client',
+
+        'Client': 'Client',
+            'Date black list': 'Date black list',
+
+        'Date black list': 'Date black list',
+            'Commentaire': 'Commentaire',
+
+        'Commentaire': 'Commentaire',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des etat courses': 'Liste des etat courses',
+    'Chercher...': 'Chercher...',
+    'Etat course': 'Etat course',
+
+
+        'Id': 'Id',
+            'Libelle': 'Libelle',
+
+        'Libelle': 'Libelle',
+            'Code': 'Code',
+
+        'Code': 'Code',
+    'Les éléments de {first} à {last} sur {totalRecords} ': 'Les éléments de {first} à {last} sur {totalRecords} ',
+    'Liste des marque voitures': 'Liste des marque voitures',
+    'Chercher...': 'Chercher...',
+    'Marque voiture': 'Marque voiture',
+
+
+        'Id': 'Id',
+            'Libelle': 'Libelle',
+
+        'Libelle': 'Libelle',
+            'Code': 'Code',
+
+        'Code': 'Code',
+            'Actif': 'Actif',
+
+        'Actif': 'Actif',
+}
+
+
